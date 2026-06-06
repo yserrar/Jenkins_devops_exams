@@ -37,14 +37,8 @@ spec:
             - name: http
               containerPort: 8000
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /api/v1/checkapi
-              port: http
-          readinessProbe:
-            httpGet:
-              path: /api/v1/checkapi
-              port: http
+          # livenessProbe désactivée - route /checkapi inexistante
+          # readinessProbe désactivée - route /checkapi inexistante
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
