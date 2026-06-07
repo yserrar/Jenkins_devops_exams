@@ -52,10 +52,10 @@ pipeline {
                         sed -i "s+repository:.*+repository: $DOCKER_ID/$DOCKER_CAST+g" values-cast.yml
                         sed -i "s+tag:.*+tag: $DOCKER_TAG+g" values-cast.yml
                         sed -i "s+nodePort:.*+nodePort: 30001+g" values-cast.yml
-                        sed -i "s+uri:.*+uri: \"postgresql://cast_db_username:cast_db_password@cast-service-fastapiapp-db/cast_db_dev\"+g" values-cast.yml
-                        sed -i "s+user:.*+user: \"cast_db_username\"+g" values-cast.yml
-                        sed -i "s+password:.*+password: \"cast_db_password\"+g" values-cast.yml
-                        sed -i "s+name:.*+name: \"cast_db_dev\"+g" values-cast.yml
+                        sed -i "s|uri:.*|uri: \"postgresql://cast_db_username:cast_db_password@cast-service-fastapiapp-db/cast_db_dev\"|g" values-cast.yml
+                        sed -i "s|user:.*|user: \"cast_db_username\"|g" values-cast.yml
+                        sed -i "s|password:.*|password: \"cast_db_password\"|g" values-cast.yml
+                        sed -i "s|name:.*|name: \"cast_db_dev\"|g" values-cast.yml
                         helm upgrade --install cast-service charts --values=values-cast.yml --namespace $NAMESPACE --create-namespace
 
                         # movie-service
@@ -63,6 +63,10 @@ pipeline {
                         sed -i "s+repository:.*+repository: $DOCKER_ID/$DOCKER_MOVIE+g" values-movie.yml
                         sed -i "s+tag:.*+tag: $DOCKER_TAG+g" values-movie.yml
                         sed -i "s+nodePort:.*+nodePort: 30005+g" values-movie.yml
+                        sed -i "s|uri:.*|uri: \"postgresql://movie_db_username:movie_db_password@movie-service-fastapiapp-db/movie_db_dev\"|g" values-movie.yml
+                        sed -i "s|user:.*|user: \"movie_db_username\"|g" values-movie.yml
+                        sed -i "s|password:.*|password: \"movie_db_password\"|g" values-movie.yml
+                        sed -i "s|name:.*|name: \"movie_db_dev\"|g" values-movie.yml
                         helm upgrade --install movie-service charts --values=values-movie.yml --namespace $NAMESPACE --create-namespace
                     '''
                 }
@@ -84,20 +88,20 @@ pipeline {
                         sed -i "s+repository:.*+repository: $DOCKER_ID/$DOCKER_CAST+g" values-cast.yml
                         sed -i "s+tag:.*+tag: $DOCKER_TAG+g" values-cast.yml
                         sed -i "s+nodePort:.*+nodePort: 30002+g" values-cast.yml
-                        sed -i "s+uri:.*+uri: \"postgresql://cast_db_username:cast_db_password@cast-service-fastapiapp-db/cast_db_dev\"+g" values-cast.yml
-                        sed -i "s+user:.*+user: \"cast_db_username\"+g" values-cast.yml
-                        sed -i "s+password:.*+password: \"cast_db_password\"+g" values-cast.yml
-                        sed -i "s+name:.*+name: \"cast_db_dev\"+g" values-cast.yml
+                        sed -i "s|uri:.*|uri: \"postgresql://cast_db_username:cast_db_password@cast-service-fastapiapp-db/cast_db_dev\"|g" values-cast.yml
+                        sed -i "s|user:.*|user: \"cast_db_username\"|g" values-cast.yml
+                        sed -i "s|password:.*|password: \"cast_db_password\"|g" values-cast.yml
+                        sed -i "s|name:.*|name: \"cast_db_dev\"|g" values-cast.yml
                         helm upgrade --install cast-service charts --values=values-cast.yml --namespace $NAMESPACE --create-namespace
 
                         cp charts/values.yaml values-movie.yml
                         sed -i "s+repository:.*+repository: $DOCKER_ID/$DOCKER_MOVIE+g" values-movie.yml
                         sed -i "s+tag:.*+tag: $DOCKER_TAG+g" values-movie.yml
                         sed -i "s+nodePort:.*+nodePort: 30006+g" values-movie.yml
-                        sed -i "s+uri:.*+uri: \"postgresql://movie_db_username:movie_db_password@movie-service-fastapiapp-db/movie_db_dev\"+g" values-movie.yml
-                        sed -i "s+user:.*+user: \"movie_db_username\"+g" values-movie.yml
-                        sed -i "s+password:.*+password: \"movie_db_password\"+g" values-movie.yml
-                        sed -i "s+name:.*+name: \"movie_db_dev\"+g" values-movie.yml
+                        sed -i "s|uri:.*|uri: \"postgresql://movie_db_username:movie_db_password@movie-service-fastapiapp-db/movie_db_dev\"|g" values-movie.yml
+                        sed -i "s|user:.*|user: \"movie_db_username\"|g" values-movie.yml
+                        sed -i "s|password:.*|password: \"movie_db_password\"|g" values-movie.yml
+                        sed -i "s|name:.*|name: \"movie_db_dev\"|g" values-movie.yml
                         helm upgrade --install movie-service charts --values=values-movie.yml --namespace $NAMESPACE --create-namespace
                     '''
                 }
@@ -119,20 +123,20 @@ pipeline {
                         sed -i "s+repository:.*+repository: $DOCKER_ID/$DOCKER_CAST+g" values-cast.yml
                         sed -i "s+tag:.*+tag: $DOCKER_TAG+g" values-cast.yml
                         sed -i "s+nodePort:.*+nodePort: 30003+g" values-cast.yml
-                        sed -i "s+uri:.*+uri: \"postgresql://cast_db_username:cast_db_password@cast-service-fastapiapp-db/cast_db_dev\"+g" values-cast.yml
-                        sed -i "s+user:.*+user: \"cast_db_username\"+g" values-cast.yml
-                        sed -i "s+password:.*+password: \"cast_db_password\"+g" values-cast.yml
-                        sed -i "s+name:.*+name: \"cast_db_dev\"+g" values-cast.yml
+                        sed -i "s|uri:.*|uri: \"postgresql://cast_db_username:cast_db_password@cast-service-fastapiapp-db/cast_db_dev\"|g" values-cast.yml
+                        sed -i "s|user:.*|user: \"cast_db_username\"|g" values-cast.yml
+                        sed -i "s|password:.*|password: \"cast_db_password\"|g" values-cast.yml
+                        sed -i "s|name:.*|name: \"cast_db_dev\"|g" values-cast.yml
                         helm upgrade --install cast-service charts --values=values-cast.yml --namespace $NAMESPACE --create-namespace
 
                         cp charts/values.yaml values-movie.yml
                         sed -i "s+repository:.*+repository: $DOCKER_ID/$DOCKER_MOVIE+g" values-movie.yml
                         sed -i "s+tag:.*+tag: $DOCKER_TAG+g" values-movie.yml
                         sed -i "s+nodePort:.*+nodePort: 30007+g" values-movie.yml
-                        sed -i "s+uri:.*+uri: \"postgresql://movie_db_username:movie_db_password@movie-service-fastapiapp-db/movie_db_dev\"+g" values-movie.yml
-                        sed -i "s+user:.*+user: \"movie_db_username\"+g" values-movie.yml
-                        sed -i "s+password:.*+password: \"movie_db_password\"+g" values-movie.yml
-                        sed -i "s+name:.*+name: \"movie_db_dev\"+g" values-movie.yml
+                        sed -i "s|uri:.*|uri: \"postgresql://movie_db_username:movie_db_password@movie-service-fastapiapp-db/movie_db_dev\"|g" values-movie.yml
+                        sed -i "s|user:.*|user: \"movie_db_username\"|g" values-movie.yml
+                        sed -i "s|password:.*|password: \"movie_db_password\"|g" values-movie.yml
+                        sed -i "s|name:.*|name: \"movie_db_dev\"|g" values-movie.yml
                         helm upgrade --install movie-service charts --values=values-movie.yml --namespace $NAMESPACE --create-namespace
                     '''
                 }
@@ -163,20 +167,20 @@ pipeline {
                         sed -i "s+repository:.*+repository: $DOCKER_ID/$DOCKER_CAST+g" values-cast.yml
                         sed -i "s+tag:.*+tag: $DOCKER_TAG+g" values-cast.yml
                         sed -i "s+nodePort:.*+nodePort: 30004+g" values-cast.yml
-                        sed -i "s+uri:.*+uri: \"postgresql://cast_db_username:cast_db_password@cast-service-fastapiapp-db/cast_db_dev\"+g" values-cast.yml
-                        sed -i "s+user:.*+user: \"cast_db_username\"+g" values-cast.yml
-                        sed -i "s+password:.*+password: \"cast_db_password\"+g" values-cast.yml
-                        sed -i "s+name:.*+name: \"cast_db_dev\"+g" values-cast.yml
+                        sed -i "s|uri:.*|uri: \"postgresql://cast_db_username:cast_db_password@cast-service-fastapiapp-db/cast_db_dev\"|g" values-cast.yml
+                        sed -i "s|user:.*|user: \"cast_db_username\"|g" values-cast.yml
+                        sed -i "s|password:.*|password: \"cast_db_password\"|g" values-cast.yml
+                        sed -i "s|name:.*|name: \"cast_db_dev\"|g" values-cast.yml
                         helm upgrade --install cast-service charts --values=values-cast.yml --namespace $NAMESPACE --create-namespace
 
                         cp charts/values.yaml values-movie.yml
                         sed -i "s+repository:.*+repository: $DOCKER_ID/$DOCKER_MOVIE+g" values-movie.yml
                         sed -i "s+tag:.*+tag: $DOCKER_TAG+g" values-movie.yml
                         sed -i "s+nodePort:.*+nodePort: 30008+g" values-movie.yml
-                        sed -i "s+uri:.*+uri: \"postgresql://movie_db_username:movie_db_password@movie-service-fastapiapp-db/movie_db_dev\"+g" values-movie.yml
-                        sed -i "s+user:.*+user: \"movie_db_username\"+g" values-movie.yml
-                        sed -i "s+password:.*+password: \"movie_db_password\"+g" values-movie.yml
-                        sed -i "s+name:.*+name: \"movie_db_dev\"+g" values-movie.yml
+                        sed -i "s|uri:.*|uri: \"postgresql://movie_db_username:movie_db_password@movie-service-fastapiapp-db/movie_db_dev\"|g" values-movie.yml
+                        sed -i "s|user:.*|user: \"movie_db_username\"|g" values-movie.yml
+                        sed -i "s|password:.*|password: \"movie_db_password\"|g" values-movie.yml
+                        sed -i "s|name:.*|name: \"movie_db_dev\"|g" values-movie.yml
                         helm upgrade --install movie-service charts --values=values-movie.yml --namespace $NAMESPACE --create-namespace
                     '''
                 }
@@ -187,7 +191,7 @@ pipeline {
     post {
         failure {
             echo "Pipeline échoué"
-            mail to: "yserrar@email.com",
+            //mail to: "yserrar@email.com",
                  subject: "${env.JOB_NAME} - Build #${env.BUILD_ID} failed",
                  body: "Console: ${env.BUILD_URL}"
         }
