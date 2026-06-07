@@ -210,7 +210,7 @@ pipeline {
                             if (destroy) {
                                 sh '''
                                     rm -Rf .kube && mkdir .kube
-                                    cat \$KUBECONFIG > .kube/config
+                                    cat $KUBECONFIG > .kube/config
                                     helm uninstall cast-service -n dev || true
                                     helm uninstall movie-service -n dev || true
                                     kubectl delete namespace dev || true
