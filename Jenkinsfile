@@ -54,10 +54,10 @@ pipeline {
                         sed -i "s+nodePort:.*+nodePort: 30001+g" values-cast.yml
                     '''
                     sh """
-                        sed -i 's|uri:.*|uri: "postgresql://cast_db_username:cast_db_password@cast-service-fastapiapp-db/cast_db_dev"|g' values-cast.yml
-                        sed -i 's|user:.*|user: "cast_db_username"|g' values-cast.yml
-                        sed -i 's|password:.*|password: "cast_db_password"|g' values-cast.yml
-                        sed -i 's|name:.*|name: "cast_db_dev"|g' values-cast.yml
+                        sed -i 's|  uri:.*|  uri: "postgresql://cast_db_username:cast_db_password@cast-service-fastapiapp-db/cast_db_dev"|g' values-cast.yml
+                        sed -i 's|  user:.*|  user: "cast_db_username"|g' values-cast.yml
+                        sed -i 's|  password:.*|  password: "cast_db_password"|g' values-cast.yml
+                        sed -i 's|  name: .*|  name: "cast_db_dev"|g' values-cast.yml
                     """
                     sh '''
                         helm upgrade --install cast-service charts --values=values-cast.yml --namespace $NAMESPACE --create-namespace
@@ -69,10 +69,10 @@ pipeline {
                         sed -i "s+nodePort:.*+nodePort: 30005+g" values-movie.yml
                     '''
                     sh """
-                        sed -i 's|uri:.*|uri: "postgresql://movie_db_username:movie_db_password@movie-service-fastapiapp-db/movie_db_dev"|g' values-movie.yml
-                        sed -i 's|user:.*|user: "movie_db_username"|g' values-movie.yml
-                        sed -i 's|password:.*|password: "movie_db_password"|g' values-movie.yml
-                        sed -i 's|name:.*|name: "movie_db_dev"|g' values-movie.yml
+                        sed -i 's|  uri:.*|  uri: "postgresql://movie_db_username:movie_db_password@movie-service-fastapiapp-db/movie_db_dev"|g' values-movie.yml
+                        sed -i 's|  user:.*|  user: "movie_db_username"|g' values-movie.yml
+                        sed -i 's|  password:.*|  password: "movie_db_password"|g' values-movie.yml
+                        sed -i 's|  name: .*|  name: "movie_db_dev"|g' values-movie.yml
                     """
                     sh '''
                         helm upgrade --install movie-service charts --values=values-movie.yml --namespace $NAMESPACE --create-namespace
@@ -98,10 +98,10 @@ pipeline {
                         sed -i "s+nodePort:.*+nodePort: 30002+g" values-cast.yml
                     '''
                     sh """
-                        sed -i 's|uri:.*|uri: "postgresql://cast_db_username:cast_db_password@cast-service-fastapiapp-db/cast_db_dev"|g' values-cast.yml
-                        sed -i 's|user:.*|user: "cast_db_username"|g' values-cast.yml
-                        sed -i 's|password:.*|password: "cast_db_password"|g' values-cast.yml
-                        sed -i 's|name:.*|name: "cast_db_dev"|g' values-cast.yml
+                        sed -i 's|  uri:.*|  uri: "postgresql://cast_db_username:cast_db_password@cast-service-fastapiapp-db/cast_db_dev"|g' values-cast.yml
+                        sed -i 's|  user:.*|  user: "cast_db_username"|g' values-cast.yml
+                        sed -i 's|  password:.*|  password: "cast_db_password"|g' values-cast.yml
+                        sed -i 's|  name: .*|  name: "cast_db_dev"|g' values-cast.yml
                     """
                     sh '''
                         helm upgrade --install cast-service charts --values=values-cast.yml --namespace $NAMESPACE --create-namespace
@@ -112,10 +112,10 @@ pipeline {
                         sed -i "s+nodePort:.*+nodePort: 30006+g" values-movie.yml
                     '''
                     sh """
-                        sed -i 's|uri:.*|uri: "postgresql://movie_db_username:movie_db_password@movie-service-fastapiapp-db/movie_db_dev"|g' values-movie.yml
-                        sed -i 's|user:.*|user: "movie_db_username"|g' values-movie.yml
-                        sed -i 's|password:.*|password: "movie_db_password"|g' values-movie.yml
-                        sed -i 's|name:.*|name: "movie_db_dev"|g' values-movie.yml
+                        sed -i 's|  uri:.*|  uri: "postgresql://movie_db_username:movie_db_password@movie-service-fastapiapp-db/movie_db_dev"|g' values-movie.yml
+                        sed -i 's|  user:.*|  user: "movie_db_username"|g' values-movie.yml
+                        sed -i 's|  password:.*|  password: "movie_db_password"|g' values-movie.yml
+                        sed -i 's|  name: .*|  name: "movie_db_dev"|g' values-movie.yml
                     """
                     sh '''
                         helm upgrade --install movie-service charts --values=values-movie.yml --namespace $NAMESPACE --create-namespace
@@ -141,10 +141,10 @@ pipeline {
                         sed -i "s+nodePort:.*+nodePort: 30003+g" values-cast.yml
                     '''
                     sh """
-                        sed -i 's|uri:.*|uri: "postgresql://cast_db_username:cast_db_password@cast-service-fastapiapp-db/cast_db_dev"|g' values-cast.yml
-                        sed -i 's|user:.*|user: "cast_db_username"|g' values-cast.yml
-                        sed -i 's|password:.*|password: "cast_db_password"|g' values-cast.yml
-                        sed -i 's|name:.*|name: "cast_db_dev"|g' values-cast.yml
+                        sed -i 's|  uri:.*|  uri: "postgresql://cast_db_username:cast_db_password@cast-service-fastapiapp-db/cast_db_dev"|g' values-cast.yml
+                        sed -i 's|  user:.*|  user: "cast_db_username"|g' values-cast.yml
+                        sed -i 's|  password:.*|  password: "cast_db_password"|g' values-cast.yml
+                        sed -i 's|  name: .*|  name: "cast_db_dev"|g' values-cast.yml
                     """
                     sh '''
                         helm upgrade --install cast-service charts --values=values-cast.yml --namespace $NAMESPACE --create-namespace
@@ -155,10 +155,10 @@ pipeline {
                         sed -i "s+nodePort:.*+nodePort: 30007+g" values-movie.yml
                     '''
                     sh """
-                        sed -i 's|uri:.*|uri: "postgresql://movie_db_username:movie_db_password@movie-service-fastapiapp-db/movie_db_dev"|g' values-movie.yml
-                        sed -i 's|user:.*|user: "movie_db_username"|g' values-movie.yml
-                        sed -i 's|password:.*|password: "movie_db_password"|g' values-movie.yml
-                        sed -i 's|name:.*|name: "movie_db_dev"|g' values-movie.yml
+                        sed -i 's|  uri:.*|  uri: "postgresql://movie_db_username:movie_db_password@movie-service-fastapiapp-db/movie_db_dev"|g' values-movie.yml
+                        sed -i 's|  user:.*|  user: "movie_db_username"|g' values-movie.yml
+                        sed -i 's|  password:.*|  password: "movie_db_password"|g' values-movie.yml
+                        sed -i 's|  name: .*|  name: "movie_db_dev"|g' values-movie.yml
                     """
                     sh '''
                         helm upgrade --install movie-service charts --values=values-movie.yml --namespace $NAMESPACE --create-namespace
@@ -193,10 +193,10 @@ pipeline {
                         sed -i "s+nodePort:.*+nodePort: 30004+g" values-cast.yml
                     '''
                     sh """
-                        sed -i 's|uri:.*|uri: "postgresql://cast_db_username:cast_db_password@cast-service-fastapiapp-db/cast_db_dev"|g' values-cast.yml
-                        sed -i 's|user:.*|user: "cast_db_username"|g' values-cast.yml
-                        sed -i 's|password:.*|password: "cast_db_password"|g' values-cast.yml
-                        sed -i 's|name:.*|name: "cast_db_dev"|g' values-cast.yml
+                        sed -i 's|  uri:.*|  uri: "postgresql://cast_db_username:cast_db_password@cast-service-fastapiapp-db/cast_db_dev"|g' values-cast.yml
+                        sed -i 's|  user:.*|  user: "cast_db_username"|g' values-cast.yml
+                        sed -i 's|  password:.*|  password: "cast_db_password"|g' values-cast.yml
+                        sed -i 's|  name: .*|  name: "cast_db_dev"|g' values-cast.yml
                     """
                     sh '''
                         helm upgrade --install cast-service charts --values=values-cast.yml --namespace $NAMESPACE --create-namespace
@@ -207,10 +207,10 @@ pipeline {
                         sed -i "s+nodePort:.*+nodePort: 30008+g" values-movie.yml
                     '''
                     sh """
-                        sed -i 's|uri:.*|uri: "postgresql://movie_db_username:movie_db_password@movie-service-fastapiapp-db/movie_db_dev"|g' values-movie.yml
-                        sed -i 's|user:.*|user: "movie_db_username"|g' values-movie.yml
-                        sed -i 's|password:.*|password: "movie_db_password"|g' values-movie.yml
-                        sed -i 's|name:.*|name: "movie_db_dev"|g' values-movie.yml
+                        sed -i 's|  uri:.*|  uri: "postgresql://movie_db_username:movie_db_password@movie-service-fastapiapp-db/movie_db_dev"|g' values-movie.yml
+                        sed -i 's|  user:.*|  user: "movie_db_username"|g' values-movie.yml
+                        sed -i 's|  password:.*|  password: "movie_db_password"|g' values-movie.yml
+                        sed -i 's|  name: .*|  name: "movie_db_dev"|g' values-movie.yml
                     """
                     sh '''
                         helm upgrade --install movie-service charts --values=values-movie.yml --namespace $NAMESPACE --create-namespace
