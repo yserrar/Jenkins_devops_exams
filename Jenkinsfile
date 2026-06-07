@@ -188,6 +188,47 @@ pipeline {
         }
     }
 
+    stage('Destroy ?') {
+                environment {
+                    KUBECONFIG = credentials("configid")
+                }
+                steps {
+                    script {
+                        def destroy = false
+                        try {
+                            timeout(time: 1, unit: "MINUTES") {
+                                destroy = input(
+                                    message: 'Voulez-vous détruire les environnements ?',
+                                    ok: 'Oui détruire',
+                                    parameters: [booleanParam(defaultValue: false, name: 'DESTROY')]
+                                )
+                            }
+                        } catch(err) {
+                            // timeout dépassé → on continue sans détruire
+                            destroy = false
+                        }
+    
+                        if (destroy) {
+                            sh """
+                                rm -Rf .kube && mkdir .kube
+                                cat \$KUBECONFIG > .kube/config
+                                helm uninstall cast-service -n dev || true
+                                helm uninstall movie-service -n dev || true
+                                kubectl delete namespace dev || true
+                                helm uninstall cast-service -n qa || true
+                                helm uninstall movie-service -n qa || true
+                                kubectl delete namespace qa || true
+                                helm uninstall cast-service -n staging || true
+                                helm uninstall movie-service -n staging || true
+                                kubectl delete namespace staging || true
+                                helm uninstall cast-service -n prod || true
+                                helm uninstall movie-service -n prod || true
+                                kubectl delete namespace prod || true
+                            """
+                        }
+                    }
+                }
+            }
     post {
         failure {
             echo "Pipeline échoué"
