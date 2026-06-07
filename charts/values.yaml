@@ -83,3 +83,9 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+database:
+  uri: "postgresql://cast_db_username:cast_db_password@cast-service-fastapiapp-db/cast_db_dev"
+  user: "cast_db_username"
+  password: "cast_db_password"
+  name: "cast_db_dev"
