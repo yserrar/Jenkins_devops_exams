@@ -125,7 +125,8 @@ pipeline {
                     branch 'master'
                     expression { env.GIT_BRANCH == 'origin/master' }
                 }
-            }            environment {
+            }
+            environment {
                 KUBECONFIG = credentials("configid")
                 NAMESPACE  = "prod"
             }
