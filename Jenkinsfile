@@ -192,8 +192,8 @@ pipeline {
         failure {
             echo "Pipeline échoué"
             //mail to: "yserrar@email.com",
-                 subject: "${env.JOB_NAME} - Build #${env.BUILD_ID} failed",
-                 body: "Console: ${env.BUILD_URL}"
+            //     subject: "${env.JOB_NAME} - Build #${env.BUILD_ID} failed",
+            //     body: "Console: ${env.BUILD_URL}"
         }
     }
 }
