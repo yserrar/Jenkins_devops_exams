@@ -57,7 +57,7 @@ pipeline {
                         sed -i 's|  uri:.*|  uri: "postgresql://cast_db_username:cast_db_password@cast-service-fastapiapp-db/cast_db_dev"|g' values-cast.yml
                         sed -i 's|  user:.*|  user: "cast_db_username"|g' values-cast.yml
                         sed -i 's|  password:.*|  password: "cast_db_password"|g' values-cast.yml
-                        sed -i 's|  name: .*|  name: "cast_db_dev"|g' values-cast.yml
+                        sed -i '/^database:/,/^[^ ]/ s|  name:.*|  name: "cast_db_dev"|g' values-cast.yml
                     """
                     sh '''
                         helm upgrade --install cast-service charts --values=values-cast.yml --namespace $NAMESPACE --create-namespace
@@ -72,7 +72,7 @@ pipeline {
                         sed -i 's|  uri:.*|  uri: "postgresql://movie_db_username:movie_db_password@movie-service-fastapiapp-db/movie_db_dev"|g' values-movie.yml
                         sed -i 's|  user:.*|  user: "movie_db_username"|g' values-movie.yml
                         sed -i 's|  password:.*|  password: "movie_db_password"|g' values-movie.yml
-                        sed -i 's|  name: .*|  name: "movie_db_dev"|g' values-movie.yml
+                        sed -i '/^database:/,/^[^ ]/ s|  name:.*|  name: "movie_db_dev"|g' values-movie.yml
                     """
                     sh '''
                         helm upgrade --install movie-service charts --values=values-movie.yml --namespace $NAMESPACE --create-namespace
@@ -101,7 +101,7 @@ pipeline {
                         sed -i 's|  uri:.*|  uri: "postgresql://cast_db_username:cast_db_password@cast-service-fastapiapp-db/cast_db_dev"|g' values-cast.yml
                         sed -i 's|  user:.*|  user: "cast_db_username"|g' values-cast.yml
                         sed -i 's|  password:.*|  password: "cast_db_password"|g' values-cast.yml
-                        sed -i 's|  name: .*|  name: "cast_db_dev"|g' values-cast.yml
+                        sed -i '/^database:/,/^[^ ]/ s|  name:.*|  name: "cast_db_dev"|g' values-cast.yml
                     """
                     sh '''
                         helm upgrade --install cast-service charts --values=values-cast.yml --namespace $NAMESPACE --create-namespace
@@ -115,7 +115,7 @@ pipeline {
                         sed -i 's|  uri:.*|  uri: "postgresql://movie_db_username:movie_db_password@movie-service-fastapiapp-db/movie_db_dev"|g' values-movie.yml
                         sed -i 's|  user:.*|  user: "movie_db_username"|g' values-movie.yml
                         sed -i 's|  password:.*|  password: "movie_db_password"|g' values-movie.yml
-                        sed -i 's|  name: .*|  name: "movie_db_dev"|g' values-movie.yml
+                        sed -i '/^database:/,/^[^ ]/ s|  name:.*|  name: "movie_db_dev"|g' values-movie.yml
                     """
                     sh '''
                         helm upgrade --install movie-service charts --values=values-movie.yml --namespace $NAMESPACE --create-namespace
@@ -144,7 +144,7 @@ pipeline {
                         sed -i 's|  uri:.*|  uri: "postgresql://cast_db_username:cast_db_password@cast-service-fastapiapp-db/cast_db_dev"|g' values-cast.yml
                         sed -i 's|  user:.*|  user: "cast_db_username"|g' values-cast.yml
                         sed -i 's|  password:.*|  password: "cast_db_password"|g' values-cast.yml
-                        sed -i 's|  name: .*|  name: "cast_db_dev"|g' values-cast.yml
+                        sed -i '/^database:/,/^[^ ]/ s|  name:.*|  name: "cast_db_dev"|g' values-cast.yml
                     """
                     sh '''
                         helm upgrade --install cast-service charts --values=values-cast.yml --namespace $NAMESPACE --create-namespace
@@ -158,7 +158,7 @@ pipeline {
                         sed -i 's|  uri:.*|  uri: "postgresql://movie_db_username:movie_db_password@movie-service-fastapiapp-db/movie_db_dev"|g' values-movie.yml
                         sed -i 's|  user:.*|  user: "movie_db_username"|g' values-movie.yml
                         sed -i 's|  password:.*|  password: "movie_db_password"|g' values-movie.yml
-                        sed -i 's|  name: .*|  name: "movie_db_dev"|g' values-movie.yml
+                        sed -i '/^database:/,/^[^ ]/ s|  name:.*|  name: "movie_db_dev"|g' values-movie.yml
                     """
                     sh '''
                         helm upgrade --install movie-service charts --values=values-movie.yml --namespace $NAMESPACE --create-namespace
@@ -196,7 +196,7 @@ pipeline {
                         sed -i 's|  uri:.*|  uri: "postgresql://cast_db_username:cast_db_password@cast-service-fastapiapp-db/cast_db_dev"|g' values-cast.yml
                         sed -i 's|  user:.*|  user: "cast_db_username"|g' values-cast.yml
                         sed -i 's|  password:.*|  password: "cast_db_password"|g' values-cast.yml
-                        sed -i 's|  name: .*|  name: "cast_db_dev"|g' values-cast.yml
+                        sed -i '/^database:/,/^[^ ]/ s|  name:.*|  name: "cast_db_dev"|g' values-cast.yml
                     """
                     sh '''
                         helm upgrade --install cast-service charts --values=values-cast.yml --namespace $NAMESPACE --create-namespace
@@ -210,7 +210,7 @@ pipeline {
                         sed -i 's|  uri:.*|  uri: "postgresql://movie_db_username:movie_db_password@movie-service-fastapiapp-db/movie_db_dev"|g' values-movie.yml
                         sed -i 's|  user:.*|  user: "movie_db_username"|g' values-movie.yml
                         sed -i 's|  password:.*|  password: "movie_db_password"|g' values-movie.yml
-                        sed -i 's|  name: .*|  name: "movie_db_dev"|g' values-movie.yml
+                        sed -i '/^database:/,/^[^ ]/ s|  name:.*|  name: "movie_db_dev"|g' values-movie.yml
                     """
                     sh '''
                         helm upgrade --install movie-service charts --values=values-movie.yml --namespace $NAMESPACE --create-namespace
