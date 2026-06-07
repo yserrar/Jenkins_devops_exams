@@ -195,7 +195,7 @@ pipeline {
                         script {
                             def destroy = false
                             try {
-                                timeout(time: 1, unit: "MINUTES") {
+                                timeout(time: 7, unit: "MINUTES") {
                                     destroy = input(
                                         message: 'Voulez-vous détruire les environnements ?',
                                         ok: 'Oui détruire',
